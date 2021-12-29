@@ -47,14 +47,14 @@ module.exports = {
      network_id: "*",       // Any network (default: none)
     },
     maticmumbai: {
-      provider: () => new HDWalletProvider(mnemonic, "<rpc url>"),
+      provider: () => new HDWalletProvider(mnemonic, "https://rpc-mumbai.maticvigil.com/v1/202e862e8e03ea50b1f3ad43ca5e4af53093e413"),
       network_id: 80001,
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true
     },
     maticmainnet: {
-      provider: () => new HDWalletProvider(mnemonic, "<rpc url>"),
+      provider: () => new HDWalletProvider(mnemonic, "https://rpc-mainnet.maticvigil.com/v1/202e862e8e03ea50b1f3ad43ca5e4af53093e413"),
       network_id: '137'
     }
     // Another network with more advanced options...
