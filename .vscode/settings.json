@@ -7,7 +7,7 @@
     80,
     120
   ],
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "off",
   "editor.padding.bottom": 20,
   "editor.padding.top": 20,
   "editor.quickSuggestionsDelay": 100,
