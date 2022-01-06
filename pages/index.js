@@ -30,6 +30,9 @@ export default function Home() {
     const nftData = NFT.networks[networkId]
     const marketData = NFTMarket.networks[networkId]
 
+    // console.log("acount: ", appaccounts[0])
+    // console.log("network: ", networkId)
+
     if (nftData && marketData) {
 
       let abi
@@ -48,7 +51,12 @@ export default function Home() {
 
       const items = await Promise.all(data.map(async (i) => {
 
-        const tokenUri = await tokenContract.methods.tokenUri(i.tokenId).call()
+        
+
+        //if (i.tokenId != "3" || i.tokenId != "4" || i.tokenId != "5" || i.tokenId != "6") {
+        if (i.tokenId > 6) {
+          console.log("i===>>>: ", i.tokenId)
+        const tokenUri = await tokenContract.methods.tokenURI(i.tokenId).call()
         const meta = await axios.get(tokenUri)
         let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
         
@@ -65,6 +73,8 @@ export default function Home() {
 
         return item
 
+      }
+
       }))
 
       setNfts(items)
@@ -75,6 +85,13 @@ export default function Home() {
       window.alert('smart contracts not deployed on selected network')
 
     }
+
+    console.log('----------------------------------')
+    console.log('acount: ', appaccounts[0])
+    console.log('network: ', networkId)
+    console.log('loadingState', loadingState)
+    console.log('nfts', nfts)
+    console.log('----------------------------------')
 
   }
 
@@ -95,9 +112,6 @@ export default function Home() {
     loadNFTs()
 
   }
-
-  //console.log('loadingState', loadingState)
-  //console.log('nfts', nfts)
 
   if (loadingState === 'loaded' && !nfts.length)
     return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
