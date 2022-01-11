@@ -47,10 +47,8 @@ export default function Home() {
 
       const items = await Promise.all(data.map(async (i,) => {
 
-        console.log("i===>>>: ", i.tokenId)
-
         const tokenUri = await tokenContract.methods.tokenURI(i.tokenId).call()
-        console.log('tokenUri', tokenUri)
+
         const meta = await axios.get(tokenUri)
         let price = ethers.utils.formatUnits(i.price.toString(), 'ether')
         
@@ -96,8 +94,6 @@ export default function Home() {
     loadNFTs()
 
   }
-
-  console.log('nfts', nfts)
 
   if (loadingState === 'loaded' && !nfts.length)
     return (<h1 className="px-20 py-10 text-3xl">No items in marketplace</h1>)
@@ -150,6 +146,5 @@ export default function Home() {
     </div>
 
   )
-
 
 }

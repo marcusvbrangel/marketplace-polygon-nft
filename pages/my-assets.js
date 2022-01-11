@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import { ethers } from 'ethers'
 import { useEffect, useState } from 'react'
-import { axios } from 'axios'
+import axios from 'axios'
 import Web3Modal from 'web3modal'
 
 import { nftaddress, nftmarketaddress } from '../config.js'
@@ -33,7 +33,7 @@ export default function MyAssets() {
     const tokenContract = new ethers.Contract(nftaddress, NFT.abi, provider)
 
     const data = await marketContract.fetchMyNFTs()
-
+    
     const items = await Promise.all(data.map(async (i) => {
 
       const tokenUri = await tokenContract.tokenURI(i.tokenId)
@@ -56,7 +56,7 @@ export default function MyAssets() {
 
     setNfts(items)
     setLoadingState('loaded')
-
+    
   }
 
   if (loadingState === 'loaded' && !nfts.length) 
@@ -96,6 +96,5 @@ export default function MyAssets() {
     </div>
 
   )
-
 
 }
