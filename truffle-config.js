@@ -46,6 +46,13 @@ module.exports = {
      port: 7545,            // Standard Ethereum port (default: none)
      network_id: "*",       // Any network (default: none)
     },
+    alchemypoligonmumbai: {
+      provider: () => new HDWalletProvider(mnemonic, "https://polygon-mumbai.g.alchemy.com/v2/kM_RoyKudFkEB3kTJKHSrLRmbA6ktCZL", 5),
+      network_id: 80001,
+      confirmations: 2,
+      timeoutBlocks: 200,
+      skipDryRun: true,
+    },
     maticmumbai: {
       provider: () => new HDWalletProvider(mnemonic, "https://rpc-mumbai.maticvigil.com/v1/202e862e8e03ea50b1f3ad43ca5e4af53093e413"),
       network_id: 80001,
@@ -57,6 +64,14 @@ module.exports = {
       provider: () => new HDWalletProvider(mnemonic, "https://rpc-mainnet.maticvigil.com/v1/202e862e8e03ea50b1f3ad43ca5e4af53093e413"),
       network_id: '137'
     }
+
+
+    // alchemy-polygon-mumbai
+    // https://polygon-mumbai.g.alchemy.com/v2/kM_RoyKudFkEB3kTJKHSrLRmbA6ktCZL
+
+
+
+
     // Another network with more advanced options...
     // advanced: {
     // port: 8777,             // Custom port
