@@ -47,7 +47,7 @@ module.exports = {
      network_id: "*",       // Any network (default: none)
     },
     alchemypoligonmumbai: {
-      provider: () => new HDWalletProvider(mnemonic, "https://polygon-mumbai.g.alchemy.com/v2/kM_RoyKudFkEB3kTJKHSrLRmbA6ktCZL", 5),
+      provider: () => new HDWalletProvider(mnemonic, "https://polygon-mumbai.g.alchemy.com/v2/kM_RoyKudFkEB3kTJKHSrLRmbA6ktCZL"),
       network_id: 80001,
       confirmations: 2,
       timeoutBlocks: 200,
